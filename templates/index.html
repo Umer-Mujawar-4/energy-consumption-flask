@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Power Consumption Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        
+        .card {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 400px;
+        }
+        
+        h1 {
+            margin-top: 0;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .input-group {
+            margin-bottom: 15px;
+        }
+        
+        .input-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        .input-group input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        button:hover {
+            background-color: #0056b3;
+        }
+        
+        .result {
+            margin-top: 20px;
+            text-align: center;
+        }
+        
+        .result h2 {
+            margin-top: 0;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <h1>Power Consumption Prediction</h1>
+            <form action="/" method="post">
+                <div class="input-group">
+                    <label for="temperature">Temperature:</label>
+                    <input type="text" id="temperature" name="Temperature">
+                </div>
+                <div class="input-group">
+                    <label for="humidity">Humidity:</label>
+                    <input type="text" id="humidity" name="Humidity">
+                </div>
+                <div class="input-group">
+                    <label for="wind_speed">Wind Speed:</label>
+                    <input type="text" id="wind_speed" name="WindSpeed">
+                </div>
+                <div class="input-group">
+                    <label for="general_diffuse_flows">General Diffuse Flows:</label>
+                    <input type="text" id="general_diffuse_flows" name="GeneralDiffuseFlows">
+                </div>
+                <div class="input-group">
+                    <label for="diffuse_flows">Diffuse Flows:</label>
+                    <input type="text" id="diffuse_flows" name="DiffuseFlows">
+                </div>
+                <div class="input-group">
+                    <label for="month">Month:</label>
+                    <input type="text" id="month" name="Month">
+                </div>
+                <div class="input-group">
+                    <label for="day">Day:</label>
+                    <input type="text" id="day" name="Day">
+                </div>
+                <div class="input-group">
+                    <label for="hour">Hour:</label>
+                    <input type="text" id="hour" name="Hour">
+                </div>
+                <div class="input-group">
+                    <label for="minute">Minute:</label>
+                    <input type="text" id="minute" name="Minute">
+                </div>
+                <button type="submit">Predict</button>
+            </form>
+            {% if prediction %}
+            <div class="result">
+                <h2>Predicted Power Consumption:</h2>
+                <p>{{ prediction }}</p>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>
